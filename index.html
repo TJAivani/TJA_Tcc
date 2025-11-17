@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IE</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="diplomado.png" type="image/x-icon">
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+</head>
+<body>
+  <header>
+    <div class="logo">Instituto Evoluir 📚 </div>
+    <nav class="nav" id="menu">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="cursos.html">Cursos</a></li>
+        <li><a href="#calendario">Calendário</a></li>
+        <li><a href="#comunicados">Comunicados</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle" id="toggle">&#9776;</div>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h1>Educar é transformar o futuro</h1>
+      <p>Conhecimento, sabedoria e acolhimento em cada aprendizado.</p>
+      <a href="#sobre" class="btn">Saiba Mais</a>
+    </div>
+  </section>
+
+  <section id="sobre" class="container">
+    <h2>Sobre Nós</h2>
+    <p>
+      Somos uma instituição comprometida em oferecer uma educação moderna e acolhedora. 
+      Nossa missão é formar cidadãos preparados para o futuro com ética, empatia e excelência acadêmica.
+    </p>
+  </section>
+
+  <section id="cursos" class="container">
+    <h2>Nossos Cursos</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Educação Infantil</h3>
+        <p>Aprender brincando e desenvolver o prazer pelo conhecimento.</p>
+      </div>
+      <div class="card">
+        <h3>Ensino Fundamental</h3>
+        <p>Base sólida para a formação intelectual e emocional.</p>
+      </div>
+      <div class="card">
+        <h3>Ensino Médio</h3>
+        <p>Preparação completa para vestibulares e para a vida.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="calendario" class="container">
+    <h2>Calendário de Eventos</h2>
+    <div class="timeline">
+      <div class="event">
+        <span>Fevereiro</span>
+        <p>Início do Ano Letivo</p>
+      </div>
+      <div class="event">
+        <span>Abril</span>
+        <p>Feira de Ciências</p>
+      </div>
+      <div class="event">
+        <span>Junho</span>
+        <p>Festa Junina</p>
+      </div>
+      <div class="event">
+        <span>Dezembro</span>
+        <p>Formatura e Encerramento</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="comunicados" class="container">
+    <h2>Comunicados</h2>
+    <div id="lista-comunicados"></div>
+    <button id="novoComunicado" class="btn">Adicionar Comunicado</button>
+  </section>
+
+  <section id="contato" class="container">
+    <h2>Fale Conosco</h2>
+    <form id="formContato">
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu e-mail" required>
+      <textarea placeholder="Mensagem" required></textarea>
+      <button type="submit" class="btn">Enviar Mensagem</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Instituição Educacional — Desenvolvido por Antony, Karine, Suzy, Henrique e Farias.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
