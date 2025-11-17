@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursos | Instituto Evoluir</title>
+  <link rel="shortcut icon" href="abra-o-livro.png" type="image/x-icon">
+  <style>
+    /* ======== Estilo geral ======== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #004aad, #0077ff);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 0.5rem;
+    }
+
+    /* ======== Container dos cursos ======== */
+    .cursos-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 3rem 5%;
+    }
+
+    .curso {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .curso:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .curso img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .curso-content {
+      padding: 1.5rem;
+    }
+
+    .curso-content h3 {
+      color: #004aad;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .curso-content p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .curso-content button {
+      background-color: #ffcc00;
+      color: #222;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .curso-content button:hover {
+      background-color: #ffd633;
+    }
+
+    /* ======== Modal ======== */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content h2 {
+      color: #004aad;
+      margin-bottom: 1rem;
+    }
+
+    .modal-content p {
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    .close-btn {
+      background-color: #004aad;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .close-btn:hover {
+      background-color: #0066e3;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    footer {
+      background-color: #004aad;
+      color: white;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Cursos da Instituto Evoluir</h1>
+    <p>Conhecimento e sabedoria para o seu futuro</p>
+  </header>
+
+  <section class="cursos-container">
+    <div class="curso" onclick="abrirModal('Administração', 'O curso de Administração forma profissionais capazes de gerir empresas e recursos de maneira estratégica. Nele, o aluno aprende sobre finanças, marketing, liderança, recursos humanos, logística e tomada de decisões. O administrador é preparado para resolver problemas, melhorar resultados e organizar processos, podendo atuar em vários tipos de empresas e setores.')">
+      <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=800&q=80" alt="Administração">
+      <div class="curso-content">
+        <h3>Administração</h3>
+        <p>Gestão, finanças e liderança moderna.</p>
+        <button>Saiba mais</button>
+      </div>
+    </div>
+
+    <div class="curso" onclick="abrirModal('Informática', 'O curso de Informática prepara o aluno para trabalhar com computadores, software, hardware, redes e tecnologia em geral. Nele, o estudante aprende a montar e manter computadores, instalar sistemas, programar, criar soluções digitais e resolver problemas tecnológicos. É uma formação versátil, que permite atuar em empresas, escolas, comércios, suporte técnico, desenvolvimento e diversas áreas ligadas à tecnologia.')">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Informática">
+      <div class="curso-content">
+        <h3>Informática</h3>
+        <p>Tecnologia e inovação ao seu alcance.</p>
+        <button>Saiba mais</button>
+      </div>
+    </div>
+
+    <div class="curso" onclick="abrirModal('Enfermagem', 'O curso de Enfermagem forma profissionais preparados para cuidar da saúde das pessoas em diferentes situações. Durante a formação, o estudante aprende sobre anatomia, medicamentos, primeiros socorros, procedimentos clínicos e atendimento humanizado. O enfermeiro atua na prevenção, tratamento e recuperação de pacientes, trabalhando em hospitais, postos de saúde, clínicas e outros ambientes da área da saúde.')">
+      <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80" alt="Enfermagem">
+      <div class="curso-content">
+        <h3>Enfermagem</h3>
+        <p>Cuidado, empatia e conhecimento técnico.</p>
+        <button>Saiba mais</button>
+      </div>
+    </div>
+
+    <div class="curso" onclick="abrirModal('Educação Infantil', 'O curso de Educação Infantil prepara profissionais para atuar no desenvolvimento e cuidado de crianças na primeira infância. O aluno aprende sobre pedagogia, psicologia infantil, didática, brincadeiras educativas, alfabetização inicial e práticas que estimulam o aprendizado e a socialização. O educador infantil trabalha em creches, pré-escolas e instituições de ensino, garantindo um ambiente seguro, acolhedor e estimulante para o crescimento das crianças.')">
+      <img src="images.png" alt="Educação Infantil">
+      <div class="curso-content">
+        <h3>Educação Infantil</h3>
+        <p>Ensinar com amor e sabedoria.</p>
+        <button>Saiba mais</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2 id="modalTitulo"></h2>
+      <p id="modalDescricao"></p>
+      <button class="close-btn" onclick="fecharModal()">Fechar</button>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Instituição Educacional — Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function abrirModal(titulo, descricao) {
+      document.getElementById('modalTitulo').textContent = titulo;
+      document.getElementById('modalDescricao').textContent = descricao;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function fecharModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    // Fecha modal ao clicar fora
+    window.onclick = function(event) {
+      const modal = document.getElementById('modal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
