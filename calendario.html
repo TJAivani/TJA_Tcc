@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="calendario.png" type="image/x-icon">
+<title>Calendário – Instituto Evoluir</title>
+
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        background: #f4f8ff;
+        margin: 0;
+        padding: 0;
+        color: #1a237e; /* Azul escuro = confiança */
+    }
+
+    header {
+        background: linear-gradient(135deg, #1e88e5, #42a5f5);
+        padding: 20px;
+        text-align: center;
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .today-box {
+        background: white;
+        padding: 20px;
+        border-radius: 14px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        text-align: center;
+        margin-bottom: 25px;
+        border-left: 8px solid #ff9800; /* Laranja = energia e ação */
+    }
+
+    .section-title {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 20px 0 10px;
+        color: #1e88e5;
+    }
+
+    .list-box {
+        background: white;
+        padding: 20px;
+        border-radius: 14px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin-bottom: 25px;
+    }
+
+    .item {
+        padding: 12px;
+        background: #e3f2fd;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        border-left: 6px solid #1e88e5;
+        font-size: 16px;
+    }
+
+    .event {
+        background: #fff3e0;
+        border-left: 6px solid #ff9800;
+    }
+
+    /* Calendário real */
+    .calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 10px;
+        margin-top: 25px;
+    }
+
+    .day {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    .day:hover {
+        transform: scale(1.07);
+    }
+
+    .today {
+        background: #ff9800;
+        color: white;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<header>Calendário – Instituto Evoluir</header>
+
+<div class="container">
+
+    <div class="today-box">
+        <h2 id="dataAtual"></h2>
+    </div>
+
+    <h3 class="section-title">📅 Próximos Feriados</h3>
+    <div class="list-box" id="feriados"></div>
+
+    <h3 class="section-title">📌 Eventos do Instituto Evoluir</h3>
+    <div class="list-box" id="eventos"></div>
+
+    <h3 class="section-title">📆 Calendário Interativo</h3>
+    <div id="calendar" class="calendar"></div>
+
+</div>
+
+<script>
+    // ---------------------------
+    // DATA DE HOJE
+    // ---------------------------
+    const hoje = new Date();
+    const opcoes = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById("dataAtual").innerText =
+        "Hoje é " + hoje.toLocaleDateString('pt-BR', opcoes);
+
+
+    // ---------------------------
+    // FERIADOS
+    // ---------------------------
+    const feriados = [
+        { data: "25/12/2025", nome: "Natal" },
+        { data: "01/01/2026", nome: "Ano Novo" },
+        { data: "21/04/2026", nome: "Tiradentes" }
+    ];
+
+    const feriadosBox = document.getElementById("feriados");
+    feriados.forEach(f => {
+        feriadosBox.innerHTML += `<div class='item'><b>${f.data}</b> – ${f.nome}</div>`;
+    });
+
+
+    // ---------------------------
+    // EVENTOS DO INSTITUTO
+    // ---------------------------
+    const eventos = [
+        { data: "15/12/2025", nome: "Palestra: Mercado de Trabalho" },
+        { data: "20/12/2025", nome: "Reunião com Responsáveis" },
+        { data: "10/01/2026", nome: "Workshop de Informática" }
+    ];
+
+    const eventosBox = document.getElementById("eventos");
+    eventos.forEach(e => {
+        eventosBox.innerHTML += `<div class='item event'><b>${e.data}</b> – ${e.nome}</div>`;
+    });
+
+
+    // ---------------------------
+    // CALENDÁRIO INTERATIVO
+    // ---------------------------
+    function gerarCalendario(ano, mes) {
+        const calendario = document.getElementById("calendar");
+        calendario.innerHTML = "";
+
+        const primeiroDia = new Date(ano, mes, 1).getDay();
+        const totalDias = new Date(ano, mes + 1, 0).getDate();
+
+        for (let i = 0; i < primeiroDia; i++) {
+            calendario.innerHTML += `<div></div>`;
+        }
+
+        for (let dia = 1; dia <= totalDias; dia++) {
+            let classe = "day";
+            if (
+                dia === hoje.getDate() &&
+                mes === hoje.getMonth() &&
+                ano === hoje.getFullYear()
+            ) {
+                classe += " today";
+            }
+            calendario.innerHTML += `<div class="${classe}">${dia}</div>`;
+        }
+    }
+
+    gerarCalendario(hoje.getFullYear(), hoje.getMonth());
+</script>
+
+</body>
+</html>
