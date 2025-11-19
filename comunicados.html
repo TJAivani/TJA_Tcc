@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comunicados – Instituto Evoluir</title>
+
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        background: #f4f8ff;
+        margin: 0;
+        padding: 0;
+        color: #1a237e;
+    }
+
+    header {
+        background: linear-gradient(135deg, #1e88e5, #42a5f5);
+        text-align: center;
+        padding: 20px;
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .comunicado {
+        background: white;
+        padding: 20px;
+        border-radius: 14px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        border-left: 8px solid #ff9800;
+        transition: .3s;
+        cursor: pointer;
+    }
+
+    .comunicado:hover {
+        transform: scale(1.02);
+    }
+
+    .data {
+        color: #1e88e5;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .titulo {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .texto {
+        font-size: 16px;
+        display: none;
+    }
+</style>
+</head>
+
+<body>
+
+<header>Comunicados – Instituto Evoluir</header>
+
+<div class="container">
+
+    <div class="comunicado" onclick="toggleTexto(0)">
+        <div class="data">15/12/2025</div>
+        <div class="titulo">📢 Reunião com os Pais</div>
+        <div class="texto">A reunião ocorrerá às 19h no auditório principal.</div>
+    </div>
+
+    <div class="comunicado" onclick="toggleTexto(1)">
+        <div class="data">20/12/2025</div>
+        <div class="titulo">🎓 Entrega dos Boletins</div>
+        <div class="texto">Os boletins serão entregues presencialmente na secretaria.</div>
+    </div>
+
+    <div class="comunicado" onclick="toggleTexto(2)">
+        <div class="data">10/01/2026</div>
+        <div class="titulo">💻 Início do Curso de Informática</div>
+        <div class="texto">A turma começará às 08h, na sala 03 do
