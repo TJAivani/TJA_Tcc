@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato – Instituto Evoluir</title>
+
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        background: #f4f8ff;
+        margin: 0;
+        padding: 0;
+        color: #1a237e;
+    }
+
+    header {
+        background: linear-gradient(135deg, #1e88e5, #42a5f5);
+        text-align: center;
+        padding: 20px;
+        color: #fff;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .card {
+        background: #fff;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 25px;
+    }
+
+    h3 {
+        color: #1e88e5;
+        margin-bottom: 10px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 2px solid #1e88e5;
+        margin-bottom: 15px;
+        font-size: 15px;
+        outline: none;
+    }
+
+    input:focus, textarea:focus {
+        border-color: #ff9800;
+    }
+
+    button {
+        background: #ff9800;
+        color: white;
+        padding: 14px 18px;
+        border: none;
+        border-radius: 10px;
+        font-size: 17px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: .3s;
+    }
+
+    button:hover {
+        background: #e68a00;
+        transform: scale(1.05);
+    }
+
+    .info-box {
+        padding: 15px;
+        background: #e3f2fd;
+        border-radius: 10px;
+        border-left: 6px solid #1e88e5;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+</style>
+</head>
+
+<body>
+
+<header>Contato – Instituto Evoluir</header>
+
+<div class="container">
+
+    <div class="card">
+        <h3>📞 Fale Conosco</h3>
+        <form id="formContato">
+            <input type="text" placeholder="Seu nome" required>
+            <input type="email" placeholder="Seu e-mail" required>
+            <input type="text" placeholder="Assunto" required>
+            <textarea rows="5" placeholder="Mensagem" required></textarea>
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+        <div id="confirmacao" class="info-box" style="display:none;">
+            ✔ Sua mensagem foi enviada com sucesso!
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>📍 Informações da Instituição</h3>
+        <div class="info-box">
+            <b>Instituto Evoluir</b><br>
+            Rua Exemplo, 123 – São Paulo, SP<br>
+            Telefone: (11) 90000-0000<br>
+            E-mail: contato@institutoevoluir.com<br>
+        </div>
+    </div>
+
+</div>
+
+<script>
+document.getElementById("formContato").onsubmit = function(e) {
+    e.preventDefault();
+    document.getElementById("confirmacao").style.display = "block";
+};
+</script>
+
+</body>
+</html>
