@@ -148,7 +148,7 @@
   }
   
   .event {
-    background: var(--branco);
+    background: var(--cinza);
     border-left: 5px solid var(--dourado);
     padding: 15px 25px;
     border-radius: 8px;
